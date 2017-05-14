@@ -33,6 +33,8 @@ module Spinach
                 :save_and_open_page_on_failure,
                 :reporter_class,
                 :reporter_options,
+                :orderer_class,
+                :orderer_options,
                 :fail_fast,
                 :audit
 
@@ -64,6 +66,24 @@ module Spinach
     # @api public
     def reporter_options
       @reporter_options || {}
+    end
+
+    # The "orderer class" holds the orderer class name
+    # Default to Spinach::Orderer::Default
+    #
+    # @return [orderer object]
+    #    The orderer that responds to specific messages.
+    #
+    # @api public
+    def orderer_class
+      @orderer_class || "Spinach::Orderer::Default"
+    end
+
+    # The "orderer_options" holds the options of orderer_class
+    #
+    # @api public
+    def orderer_options
+      @orderer_options || {}
     end
 
     # The "step definitions path" holds the place where your feature step

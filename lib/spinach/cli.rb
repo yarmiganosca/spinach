@@ -173,7 +173,7 @@ and obsolete steps") do
     # Builds the class name to use an output reporter.
     #
     # @param [String] klass
-    #   The class name fo the reporter.
+    #   The class name of the reporter.
     #
     # @return [String]
     #   The full name of the reporter class.

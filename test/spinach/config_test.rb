@@ -27,6 +27,28 @@ describe Spinach::Config do
    end
  end
 
+ describe '#orderer_class' do
+   it 'returns a default' do
+     subject[:orderer_class].must_equal "Spinach::Orderer::Default"
+   end
+
+   it 'can be overwritten' do
+     subject[:orderer_class] = "MyOwnOrderer"
+     subject[:orderer_class].must_equal "MyOwnOrderer"
+   end
+ end
+
+ describe '#orderer_options' do
+   it 'returns a default' do
+     subject[:orderer_options].must_equal({})
+   end
+
+   it 'can be overwritten' do
+     subject[:orderer_options] = {seed: 54321}
+     subject[:orderer_options].must_equal({seed: 54321})
+   end
+ end
+
  describe '#step_definitions_path' do
    it 'returns a default' do
      subject[:step_definitions_path].must_be_kind_of String

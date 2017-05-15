@@ -137,7 +137,7 @@ module Spinach
           opts.on('--seed SEED', Integer,
                   "Randomize the order of features and scenarios according to a specific numerical seed") do |seed|
             config[:orderer_class] = orderer_class(:random)
-            config[:orderer_options] = {seed: seed}
+            config[:seed] = seed
           end
 
           opts.on_tail('--fail-fast',

@@ -153,7 +153,7 @@ module Spinach
     #
     # @api public
     def orderer
-      @orderer ||= Support.constantize(Spinach.config[:orderer_class]).new(Spinach.config.orderer_options)
+      @orderer ||= Support.constantize(Spinach.config[:orderer_class]).new
     end
 
     # Default initialization options for the reporter

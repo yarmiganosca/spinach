@@ -38,14 +38,14 @@ describe Spinach::Config do
    end
  end
 
- describe '#orderer_options' do
-   it 'returns a default' do
-     subject[:orderer_options].must_equal({})
+ describe '#seed' do
+   it 'has a default' do
+     subject[:seed].must_be_kind_of Integer
    end
 
    it 'can be overwritten' do
-     subject[:orderer_options] = {seed: 54321}
-     subject[:orderer_options].must_equal({seed: 54321})
+     subject[:seed] = 54321
+     subject[:seed].must_equal 54321
    end
  end
 

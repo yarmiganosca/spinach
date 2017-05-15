@@ -34,7 +34,7 @@ module Spinach
                 :reporter_class,
                 :reporter_options,
                 :orderer_class,
-                :orderer_options,
+                :seed,
                 :fail_fast,
                 :audit
 
@@ -79,11 +79,16 @@ module Spinach
       @orderer_class || "Spinach::Orderer::Default"
     end
 
-    # The "orderer_options" holds the options of orderer_class
+    # A randomization seed. This is what spinach uses for test run
+    # randomization, so if you call `Kernel.srand(Spinach.config.seed)` 
+    # in your support environment file, not only will the test run
+    # order be guaranteed to be stable under a specific seed, all
+    # the Ruby-generated random numbers produced during your test
+    # run will also be stable under that seed.
     #
     # @api public
-    def orderer_options
-      @orderer_options || {}
+    def seed
+      @seed ||= rand(0xFFFF) # it's what rspec uses
     end
 
     # The "step definitions path" holds the place where your feature step
